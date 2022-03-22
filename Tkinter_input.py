@@ -26,6 +26,7 @@ list_of_words = list(word.split(" "))
 chosen_word = random.choice(list_of_words)
 # print (chosen_word)#! for testing
 wrong_guesses = ""
+wrong_guesses_list = []
 partial_word = "_ _ _ _ _"
 # print(partial_word) #! for testing
 ############################################################
@@ -34,7 +35,7 @@ def a_new_game():
     return
 
 def submit ():
-    global wrong_guesses, chosen_word, partial_word
+    global wrong_guesses, chosen_word, partial_word,wrong_guesses_list
     guess=entry_box.get()
     if (
         guess[0] == chosen_word[0]
@@ -87,7 +88,9 @@ def submit ():
         correct_or_wrong_guess.config(text = "Correct",font=("Helvetica", 25),fg = "#097100",justify=CENTER)
         word_to_guess.config(text = partial_word,font=("Helvetica", 25), justify=CENTER)
     else:
-        wrong_guess.config(text = "Wrong Guesses:" + guess[0], font=("Helvetica", 25),fg = "#FF4A1B",justify=CENTER)
+        wrong_guesses_list.append(guess[0])
+        wrong_guesses_str = " ".join([str(element) for element in wrong_guesses_list])
+        wrong_guess.config(text = "Wrong Guesses:" + wrong_guesses_str, font=("Helvetica", 25),fg = "#FF4A1B",justify=CENTER)
         
 
         # wrong_guesses = wrong_guesses + " " + guess
