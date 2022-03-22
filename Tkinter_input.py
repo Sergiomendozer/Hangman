@@ -6,7 +6,7 @@ import random
 root = Tk()
 root.title("Word Solver")
 root.geometry("800x400")
-root.configure(bg="#AAABAB")
+root.configure(bg="#1ceae8")
 
 class Window_Functions:
     # Center's window
@@ -24,7 +24,7 @@ word = "Agent Anger Award Beach Beans Brick Birth Block Bacon Bagel Board Brain 
 list_of_words = list(word.split(" "))
 # picks a random word
 chosen_word = random.choice(list_of_words)
-# print (chosen_word)#! for testing
+print (chosen_word)#! for testing
 # wrong_guesses = ""
 wrong_guesses_list = " "
 partial_word = "_ _ _ _ _"
@@ -33,6 +33,22 @@ partial_word = "_ _ _ _ _"
 # def hangman(wrong_guesses, chosen_word, partial_word, guess):
 def a_new_game():
     return
+# wrong_guesses, chosen_word, partial_word, guess
+def is_word_guessed():
+    global wrong_guesses,chosen_word,partial_word
+    check = (
+        chosen_word[0]
+        + " "
+        + chosen_word[1]
+        + " "
+        + chosen_word[2]
+        + " "
+        + chosen_word[3]
+        + " "
+        + chosen_word[4]
+    )
+    if partial_word == check:
+       congrats.configure(text = "Congrats you guessed the word!, play a new game",font=("Helvetica", 18),fg = "#B900FF")
 
 def submit ():
     global chosen_word, partial_word,wrong_guesses_list
@@ -50,6 +66,7 @@ def submit ():
         partial_word[0] = chosen_word[0]
         partial_word = " ".join([str(element) for element in partial_word])
         word_to_guess.config(text = partial_word,font=("Helvetica", 25), justify=CENTER)
+        is_word_guessed()
     elif (
         guess[0] == chosen_word[1]
         or guess[0].upper() == chosen_word[1]
@@ -59,6 +76,7 @@ def submit ():
         partial_word[1] = chosen_word[1]
         partial_word = " ".join([str(element) for element in partial_word])
         word_to_guess.config(text = partial_word,font=("Helvetica", 25), justify=CENTER)
+        is_word_guessed()
     elif (
         guess[0] == chosen_word[2]
         or guess[0].upper() == chosen_word[2]
@@ -68,6 +86,7 @@ def submit ():
         partial_word[2] = chosen_word[2]
         partial_word = " ".join([str(element) for element in partial_word])
         word_to_guess.config(text = partial_word,font=("Helvetica", 25), justify=CENTER)
+        is_word_guessed()
     elif (
         guess[0] == chosen_word[3]
         or guess[0].upper() == chosen_word[3]
@@ -77,6 +96,7 @@ def submit ():
         partial_word[3] = chosen_word[3]
         partial_word = " ".join([str(element) for element in partial_word])
         word_to_guess.config(text = partial_word,font=("Helvetica", 25), justify=CENTER)
+        is_word_guessed()
     elif (
         guess[0] == chosen_word[4]
         or guess[0].upper() == chosen_word[4]
@@ -86,20 +106,22 @@ def submit ():
         partial_word[4] = chosen_word[4]
         partial_word = " ".join([str(element) for element in partial_word])
         word_to_guess.config(text = partial_word,font=("Helvetica", 25), justify=CENTER)
+        is_word_guessed()
     elif(n == -1):
         wrong_guesses_list = wrong_guesses_list + (guess[0])
         wrong_guess.config(text = "Wrong Guesses:" + wrong_guesses_list, font=("Helvetica", 25),fg = "#FF0101",justify=CENTER)
+        is_word_guessed()
 
 
 #?#############################################################################
 
-wrong_guess = Label(root, text = "Wrong Guesses:" + "", font=("Helvetica", 25),fg = "#FF0101",bg="#AAABAB",justify=CENTER)
+wrong_guess = Label(root, text = "Wrong Guesses:" + "", font=("Helvetica", 25),fg = "#FF0101",bg="#1ceae8",justify=CENTER)
 
-# correct_or_wrong_guess = Label(root, text = "",font=("Helvetica", 25),bg="#AAABAB",justify=CENTER)
+# correct_or_wrong_guess = Label(root, text = "",font=("Helvetica", 25),bg="#1ceae8",justify=CENTER)
 
-word_to_guess= Label(root, text = partial_word,font=("Helvetica", 25),bg="#AAABAB",justify=CENTER)
+word_to_guess= Label(root, text = partial_word,font=("Helvetica", 25),bg="#1ceae8",justify=CENTER)
 
-congrats= Label(root, text = "congrats",font=("Helvetica", 25),bg="#AAABAB", justify=CENTER)
+congrats= Label(root, text = "",font=("Helvetica", 25),bg="#1ceae8", justify=CENTER)
 
 entry_box = Entry(root, text = "", width = 5,font=("Helvetica", 25) )
 
