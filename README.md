@@ -1,3 +1,5 @@
+<a href="url"><img src="/images/word_solver_this_one.png" align="left" height="240" width="200" ></a>
+
 # Word Solver
 
 User has to guess five letter word generated to build the missing word by guessing one letter at a time
@@ -19,3 +21,6 @@ Python, Tkinter
 [Demo](https://replit.com/@sergiomendozer/Word-Solver?v=1)
 
 ## Images
+
+<a href="url"><img src="/images/WS_new_game.png" align="left" height="230" width="400" ></a>
+<a href="url"><img src="/images/WS_solved.png" align="left" height="230" width="400" ></a>
