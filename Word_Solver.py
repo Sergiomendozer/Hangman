@@ -1,15 +1,50 @@
+from tkinter import *
+from tkinter import Button
+import PIL.Image
+from PIL import ImageTk, Image
 import random
 
+# root= tk.Tk()
+root = Tk()
+root.title("Word Solver")
+root.geometry("800x400")
+root.configure(bg="#1ceae8")
 
-class color:
-    red = "\033[31m"
-    green = "\033[32m"
-    purple = "\033[35m"
-    END = "\033[0m"
+class Window_Functions:
+    # Center's window
+    app_width = 800
+    app_height = 400
+    screen_width = root.winfo_screenwidth()
+    screen_height = root.winfo_screenheight()
+    x_coordinate = (screen_width / 2) - (app_width / 2)
+    y_coordinate = (screen_height / 2) - (app_height / 2)
+    root.geometry(f"{app_width}x{app_height}+{int(x_coordinate)}+{int(y_coordinate)}")
 
 
-# checks to see if entire word is guessed
-def is_word_guessed(wrong_guesses, chosen_word, partial_word, guess):
+word = "Agent Anger Award Beach Beans Brick Birth Block Bacon Bagel Board Brain Bingo Bread Break Brown Buyer Candy Cause Chain Chair Chest Chief Child China Claim Coast Court Cover Cream Crime Crowd Crown Dirty Daily Dairy Dance Death Depth Draft Dream Demon Devil Drink Drive Earth Enemy Entry Event Faith Fault Field Fight Final Focus Force Frame Frank Front Fruit Grant Group Guide Heart Henry Horse Hotel House Image Index Input Japan Jones Judge Knife Layer Lewis Light Lunch Major March Match Metal Model Money Month Mouth Music Night Noise North Novel Nurse Other Owner Panel Party Phase Phone Piece Pilot Pitch Place Plane Plant Plate Point Pound Power Price Pride Prize Radio Range Ratio Reply Right River Round Route Rugby Scale Scope Score Shape Share Shift Shirt Shock Sight Simon Smile Smith Smoke Sound South Space Spite Sport Squad Stage Start State Steam Steel Stock Stone Store Study Stuff Style Sugar Table  Thing Touch Tower Track Trade Train Trend Trial Trust Truth Uncle Unity Value Video Voice Waste Watch Water While White Whole Woman World Youth Zebra Jumpy Ducks Abort Cable Games Grape Greek Gipsy Holes Habit Miles Maybe Mayor Media Movie Safer Sauce Rocks Raids Risky Under Unzip Vegas"
+# makes the list of words into a list
+list_of_words = list(word.split(" "))
+# picks a random word
+chosen_word = random.choice(list_of_words)
+print (chosen_word)#! for testing
+# wrong_guesses = ""
+wrong_guesses_list = " "
+partial_word = "_ _ _ _ _"
+# print(partial_word) #! for testing
+############################################################
+# def hangman(wrong_guesses, chosen_word, partial_word, guess):
+def a_new_game():
+    global list_of_words, wrong_guesses_list,partial_word,chosen_word
+    chosen_word = random.choice(list_of_words)
+    print (chosen_word)#! for testing
+    wrong_guesses_list = " "
+    partial_word = "_ _ _ _ _"
+    congrats.configure(text = "")
+    word_to_guess.config(text = partial_word)
+
+    # wrong_guesses, chosen_word, partial_word, guess
+def is_word_guessed():
+    global wrong_guesses,chosen_word,partial_word
     check = (
         chosen_word[0]
         + " "
@@ -22,16 +57,15 @@ def is_word_guessed(wrong_guesses, chosen_word, partial_word, guess):
         + chosen_word[4]
     )
     if partial_word == check:
-        print("\033[35m" + "Congrats you guessed the word: " + chosen_word + "\033[0m")
-    else:
-        print("\033[31m" + "Wrong Guesses: " + wrong_guesses + "\033[0m")
-        print("\033[32m" + "You got a guess right keep going:" + "\033[0m")
-        print(partial_word)
-        return hangman(wrong_guesses, chosen_word, partial_word, input())
+       congrats.configure(text = "Congrats you guessed the word!, play a new game",font=("Helvetica", 18),fg = "#B900FF")
 
-
-# function checks to see if users guessed letter entered is part of the word needed to be guessed
-def hangman(wrong_guesses, chosen_word, partial_word, guess):
+def submit ():
+    global chosen_word, partial_word,wrong_guesses_list
+    guess=str(entry_box.get())
+    entry_box.config(text = "")
+    entry_box.delete(0, 'end')
+    # print(wrong_guesses_list.find(guess[0]))#!for testing 
+    n =wrong_guesses_list.find(guess[0])
     if (
         guess[0] == chosen_word[0]
         or guess[0].upper() == chosen_word[0]
@@ -40,7 +74,8 @@ def hangman(wrong_guesses, chosen_word, partial_word, guess):
         partial_word = partial_word.split()
         partial_word[0] = chosen_word[0]
         partial_word = " ".join([str(element) for element in partial_word])
-        return is_word_guessed(wrong_guesses, chosen_word, partial_word, guess)
+        word_to_guess.config(text = partial_word,font=("Helvetica", 25), justify=CENTER)
+        is_word_guessed()
     elif (
         guess[0] == chosen_word[1]
         or guess[0].upper() == chosen_word[1]
@@ -49,7 +84,8 @@ def hangman(wrong_guesses, chosen_word, partial_word, guess):
         partial_word = partial_word.split()
         partial_word[1] = chosen_word[1]
         partial_word = " ".join([str(element) for element in partial_word])
-        return is_word_guessed(wrong_guesses, chosen_word, partial_word, guess)
+        word_to_guess.config(text = partial_word,font=("Helvetica", 25), justify=CENTER)
+        is_word_guessed()
     elif (
         guess[0] == chosen_word[2]
         or guess[0].upper() == chosen_word[2]
@@ -58,7 +94,8 @@ def hangman(wrong_guesses, chosen_word, partial_word, guess):
         partial_word = partial_word.split()
         partial_word[2] = chosen_word[2]
         partial_word = " ".join([str(element) for element in partial_word])
-        return is_word_guessed(wrong_guesses, chosen_word, partial_word, guess)
+        word_to_guess.config(text = partial_word,font=("Helvetica", 25), justify=CENTER)
+        is_word_guessed()
     elif (
         guess[0] == chosen_word[3]
         or guess[0].upper() == chosen_word[3]
@@ -67,7 +104,8 @@ def hangman(wrong_guesses, chosen_word, partial_word, guess):
         partial_word = partial_word.split()
         partial_word[3] = chosen_word[3]
         partial_word = " ".join([str(element) for element in partial_word])
-        return is_word_guessed(wrong_guesses, chosen_word, partial_word, guess)
+        word_to_guess.config(text = partial_word,font=("Helvetica", 25), justify=CENTER)
+        is_word_guessed()
     elif (
         guess[0] == chosen_word[4]
         or guess[0].upper() == chosen_word[4]
@@ -76,42 +114,51 @@ def hangman(wrong_guesses, chosen_word, partial_word, guess):
         partial_word = partial_word.split()
         partial_word[4] = chosen_word[4]
         partial_word = " ".join([str(element) for element in partial_word])
-        return is_word_guessed(wrong_guesses, chosen_word, partial_word, guess)
-    else:
-        wrong_guesses = wrong_guesses + " " + guess
-        print("\033[31m" + "Wrong Guesses: " + wrong_guesses + "\033[0m")
-        print(
-            "\033[31m"
-            + "The Letter "
-            + guess
-            + " is not in word, guess again:"
-            + "\033[0m"
-        )
-        print(partial_word)
-        return hangman(wrong_guesses, chosen_word, partial_word, input())
+        word_to_guess.config(text = partial_word,font=("Helvetica", 25), justify=CENTER)
+        is_word_guessed()
+    elif(n == -1):
+        wrong_guesses_list = wrong_guesses_list + (guess[0])
+        wrong_guess.config(text = "Wrong Guesses:" + wrong_guesses_list, font=("Helvetica", 25),fg = "#FF0101",justify=CENTER)
+        is_word_guessed()
 
 
-# function starts to setup hangman game
-def start(play):
-    if play == "p":
-        # list of random words that are 5 characters in length, there are currently 202 words
-        word = "Agent Anger Award Beach Beans Brick Birth Block Bacon Bagel Board Brain Bingo Bread Break Brown Buyer Candy Cause Chain Chair Chest Chief Child China Claim Coast Court Cover Cream Crime Crowd Crown Dirty Daily Dairy Dance Death Depth Draft Dream Demon Devil Drink Drive Earth Enemy Entry Event Faith Fault Field Fight Final Focus Force Frame Frank Front Fruit Grant Group Guide Heart Henry Horse Hotel House Image Index Input Japan Jones Judge Knife Layer Lewis Light Lunch Major March Match Metal Model Money Month Mouth Music Night Noise North Novel Nurse Other Owner Panel Party Phase Phone Piece Pilot Pitch Place Plane Plant Plate Point Pound Power Price Pride Prize Radio Range Ratio Reply Right River Round Route Rugby Scale Scope Score Shape Share Shift Shirt Shock Sight Simon Smile Smith Smoke Sound South Space Spite Sport Squad Stage Start State Steam Steel Stock Stone Store Study Stuff Style Sugar Table  Thing Touch Tower Track Trade Train Trend Trial Trust Truth Uncle Unity Value Video Voice Waste Watch Water While White Whole Woman World Youth Zebra Jumpy Ducks Abort Cable Games Grape Greek Gipsy Holes Habit Miles Maybe Mayor Media Movie Safer Sauce Rocks Raids Risky Under Unzip Vegas"
-        # makes the list of words into a list
-        list_of_words = list(word.split(" "))
-        # picks a random word
-        chosen_word = random.choice(list_of_words)
-        # informs user to start playing game
-        print("lets play!, try and guess five letter word one letter at a time\n")
-        wrong_guesses = ""
-        print("\033[31m" + "Wrong Guesses: " + wrong_guesses + "\033[0m")
-        partial_word = "_ _ _ _ _"
-        print(partial_word)
-        guess = input("Enter a letter and press enter: ")
-        hangman(wrong_guesses, chosen_word, partial_word, guess)
-    else:
-        play = input("To play hangman enter p: ")
+#?#############################################################################
+# original_B_ball = Image.open("B-I-N-G-O_balls/B-Bingo-ball.png")  # call image b4 resize
+# resized_B = original_B_ball.resize((200, 150), Image.ANTIALIAS)  # resize(sides, height)
+# resized_B_ball = ImageTk.PhotoImage(resized_B)
+# WS_icon = Image.open("images/WS_icon_display.png")
+# resized_WS_icon = WS_icon.resize((50, 50), Image.ANTIALIAS)  # resize(sides, height)
+# word_solver_icon = Label(root, image=resized_WS_icon, bg="#FFFFFF")
 
+wrong_guess = Label(root, text = "Wrong Guesses:" + "", font=("Helvetica", 25),fg = "#FF0101",bg="#1ceae8",justify=CENTER)
 
-# prompt user to start playing hangman
-play = str(input("To play hangman enter p, and press enter: "))
-start(play)
+# correct_or_wrong_guess = Label(root, text = "",font=("Helvetica", 25),bg="#1ceae8",justify=CENTER)
+
+word_to_guess= Label(root, text = partial_word,font=("Helvetica", 25),bg="#1ceae8",justify=CENTER)
+
+congrats= Label(root, text = "",font=("Helvetica", 25),bg="#1ceae8", justify=CENTER)
+
+entry_box = Entry(root, text = "", width = 5,font=("Helvetica", 25) )
+
+submit = Button(root, text = "Submit",font=("Helvetica", 18),bg="#B900FF", command=submit )
+
+new_game = Button(root, text = "New Game",font=("Helvetica", 18),bg="#FF0101", command=a_new_game )
+
+# resized_B = original_B_ball.resize((200, 150), Image.ANTIALIAS)  # resize(sides, height)
+# resized_B_ball = ImageTk.PhotoImage(resized_B)
+
+# bingo_ball = Label(root, image=resized_O_ball, bg="#FFFFFF")
+top= Label(root, bg="#1ceae8")
+top2= Label(root, bg="#1ceae8")
+# positions
+top.pack()
+top2.pack()
+# word_solver_icon.pack()
+wrong_guess.pack()
+word_to_guess.pack()
+entry_box.pack()
+submit.pack ()
+congrats.pack()
+new_game.pack()
+
+root.mainloop()
