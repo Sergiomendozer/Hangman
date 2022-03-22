@@ -26,23 +26,19 @@ word = "Agent Anger Award Beach Beans Brick Birth Block Bacon Bagel Board Brain 
 list_of_words = list(word.split(" "))
 # picks a random word
 chosen_word = random.choice(list_of_words)
-print (chosen_word)#! for testing
-# wrong_guesses = ""
+print (chosen_word)
 wrong_guesses_list = " "
 partial_word = "_ _ _ _ _"
-# print(partial_word) #! for testing
-############################################################
-# def hangman(wrong_guesses, chosen_word, partial_word, guess):
+
 def a_new_game():
     global list_of_words, wrong_guesses_list,partial_word,chosen_word
     chosen_word = random.choice(list_of_words)
-    print (chosen_word)#! for testing
+    print (chosen_word)
     wrong_guesses_list = " "
     partial_word = "_ _ _ _ _"
     congrats.configure(text = "")
     word_to_guess.config(text = partial_word)
 
-    # wrong_guesses, chosen_word, partial_word, guess
 def is_word_guessed():
     global wrong_guesses,chosen_word,partial_word
     check = (
@@ -64,7 +60,6 @@ def submit ():
     guess=str(entry_box.get())
     entry_box.config(text = "")
     entry_box.delete(0, 'end')
-    # print(wrong_guesses_list.find(guess[0]))#!for testing 
     n =wrong_guesses_list.find(guess[0])
     if (
         guess[0] == chosen_word[0]
@@ -122,7 +117,7 @@ def submit ():
         is_word_guessed()
 
 
-#?#############################################################################
+#?Front end labels and buttons
 # original_B_ball = Image.open("B-I-N-G-O_balls/B-Bingo-ball.png")  # call image b4 resize
 # resized_B = original_B_ball.resize((200, 150), Image.ANTIALIAS)  # resize(sides, height)
 # resized_B_ball = ImageTk.PhotoImage(resized_B)
@@ -144,10 +139,6 @@ submit = Button(root, text = "Submit",font=("Helvetica", 18),bg="#B900FF", comma
 
 new_game = Button(root, text = "New Game",font=("Helvetica", 18),bg="#FF0101", command=a_new_game )
 
-# resized_B = original_B_ball.resize((200, 150), Image.ANTIALIAS)  # resize(sides, height)
-# resized_B_ball = ImageTk.PhotoImage(resized_B)
-
-# bingo_ball = Label(root, image=resized_O_ball, bg="#FFFFFF")
 top= Label(root, bg="#1ceae8")
 top2= Label(root, bg="#1ceae8")
 # positions
