@@ -6,7 +6,7 @@ import random
 root = Tk()
 root.title("Word Solver")
 root.geometry("800x400")
-root.configure()
+root.configure(bg="#AAABAB")
 
 class Window_Functions:
     # Center's window
