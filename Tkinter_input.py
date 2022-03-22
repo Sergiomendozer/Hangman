@@ -135,10 +135,11 @@ entry_box = Entry(root, text = "", width = 5,font=("Helvetica", 25) )
 submit = Button(root, text = "Submit",font=("Helvetica", 18),bg="#B900FF", command=submit )
 
 new_game = Button(root, text = "New Game",font=("Helvetica", 18),bg="#FF0101", command=a_new_game )
-
+top= Label(root, bg="#1ceae8")
+top2= Label(root, bg="#1ceae8")
 # positions
-top= Label(root)
 top.pack()
+top2.pack()
 # correct_or_wrong_guess.pack()
 wrong_guess.pack()
 word_to_guess.pack()
