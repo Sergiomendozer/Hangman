@@ -93,25 +93,10 @@ def submit ():
         word_to_guess.config(text = partial_word,font=("Helvetica", 25), justify=CENTER)
     elif(n == -1):
         wrong_guesses_list = wrong_guesses_list + (guess[0])
-        # wrong_guesses_str = " ".join([str(element) for element in wrong_guesses_list])
-        wrong_guess.config(text = "Wrong Guesses:" + wrong_guesses_list, font=("Helvetica", 25),fg = "#FF0101 ",justify=CENTER)
-    # else:
-    #     return 
-        
+        wrong_guess.config(text = "Wrong Guesses:" + wrong_guesses_list, font=("Helvetica", 25),fg = "#FF0101",justify=CENTER)
 
-        # wrong_guesses = wrong_guesses + " " + guess
-        # print("\033[31m" + "Wrong Guesses: " + wrong_guesses + "\033[0m")
-        # print(
-        #     "\033[31m"
-        #     + "The Letter "
-        #     + guess
-        #     + " is not in word, guess again:"
-        #     + "\033[0m"
-        # )
-        # print(partial_word)
-    # print (wrong_guesses, chosen_word, partial_word,guess)#!for testing
 
-#front end label and buttons
+#?#############################################################################
 
 wrong_guess = Label(root, text = "Wrong Guesses:" + "", font=("Helvetica", 25),fg = "#FF0101",justify=CENTER)
 
