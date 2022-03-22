@@ -39,7 +39,7 @@ def submit ():
     guess=str(entry_box.get())
     entry_box.config(text = "")
     entry_box.delete(0, 'end')
-    print(wrong_guesses_list.find(guess[0]))
+    # print(wrong_guesses_list.find(guess[0]))#!for testing 
     n =wrong_guesses_list.find(guess[0])
     if (
         guess[0] == chosen_word[0]
@@ -94,7 +94,7 @@ def submit ():
     elif(n == -1):
         wrong_guesses_list = wrong_guesses_list + (guess[0])
         # wrong_guesses_str = " ".join([str(element) for element in wrong_guesses_list])
-        wrong_guess.config(text = "Wrong Guesses:" + wrong_guesses_list, font=("Helvetica", 25),fg = "#FF4A1B",justify=CENTER)
+        wrong_guess.config(text = "Wrong Guesses:" + wrong_guesses_list, font=("Helvetica", 25),fg = "#FF0101 ",justify=CENTER)
     # else:
     #     return 
         
@@ -113,7 +113,7 @@ def submit ():
 
 #front end label and buttons
 
-wrong_guess = Label(root, text = "Wrong Guesses:" + "", font=("Helvetica", 25),fg = "#FF4A1B",justify=CENTER)
+wrong_guess = Label(root, text = "Wrong Guesses:" + "", font=("Helvetica", 25),fg = "#FF0101",justify=CENTER)
 
 correct_or_wrong_guess = Label(root, text = "",font=("Helvetica", 25), justify=CENTER)
 
@@ -124,7 +124,7 @@ congrats= Label(root, text = "congrats",font=("Helvetica", 25), justify=CENTER)
 entry_box = Entry(root, text = "", width = 5,font=("Helvetica", 25) )
 
 submit = Button(root, text = "Submit",font=("Helvetica", 18),bg="#B900FF", command=submit )
-new_game = Button(root, text = "New Game",font=("Helvetica", 18),bg="#FF4A1B", command=a_new_game )
+new_game = Button(root, text = "New Game",font=("Helvetica", 18),bg="#FF0101", command=a_new_game )
 
 # positions
 top= Label(root)
