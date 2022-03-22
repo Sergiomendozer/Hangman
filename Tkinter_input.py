@@ -32,8 +32,15 @@ partial_word = "_ _ _ _ _"
 ############################################################
 # def hangman(wrong_guesses, chosen_word, partial_word, guess):
 def a_new_game():
-    return
-# wrong_guesses, chosen_word, partial_word, guess
+    global list_of_words, wrong_guesses_list,partial_word,chosen_word
+    chosen_word = random.choice(list_of_words)
+    print (chosen_word)#! for testing
+    wrong_guesses_list = " "
+    partial_word = "_ _ _ _ _"
+    congrats.configure(text = "")
+    word_to_guess.config(text = partial_word)
+
+    # wrong_guesses, chosen_word, partial_word, guess
 def is_word_guessed():
     global wrong_guesses,chosen_word,partial_word
     check = (
@@ -126,6 +133,7 @@ congrats= Label(root, text = "",font=("Helvetica", 25),bg="#1ceae8", justify=CEN
 entry_box = Entry(root, text = "", width = 5,font=("Helvetica", 25) )
 
 submit = Button(root, text = "Submit",font=("Helvetica", 18),bg="#B900FF", command=submit )
+
 new_game = Button(root, text = "New Game",font=("Helvetica", 18),bg="#FF0101", command=a_new_game )
 
 # positions
