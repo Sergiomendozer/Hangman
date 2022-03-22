@@ -25,8 +25,8 @@ list_of_words = list(word.split(" "))
 # picks a random word
 chosen_word = random.choice(list_of_words)
 # print (chosen_word)#! for testing
-wrong_guesses = ""
-wrong_guesses_list = []
+# wrong_guesses = ""
+wrong_guesses_list = " "
 partial_word = "_ _ _ _ _"
 # print(partial_word) #! for testing
 ############################################################
@@ -35,10 +35,12 @@ def a_new_game():
     return
 
 def submit ():
-    global wrong_guesses, chosen_word, partial_word,wrong_guesses_list
-    guess=entry_box.get()
+    global chosen_word, partial_word,wrong_guesses_list
+    guess=str(entry_box.get())
     entry_box.config(text = "")
     entry_box.delete(0, 'end')
+    print(wrong_guesses_list.find(guess[0]))
+    n =wrong_guesses_list.find(guess[0])
     if (
         guess[0] == chosen_word[0]
         or guess[0].upper() == chosen_word[0]
@@ -89,10 +91,12 @@ def submit ():
         partial_word = " ".join([str(element) for element in partial_word])
         correct_or_wrong_guess.config(text = "Correct",font=("Helvetica", 25),fg = "#097100",justify=CENTER)
         word_to_guess.config(text = partial_word,font=("Helvetica", 25), justify=CENTER)
-    else:
-        wrong_guesses_list.append(guess[0])
-        wrong_guesses_str = " ".join([str(element) for element in wrong_guesses_list])
-        wrong_guess.config(text = "Wrong Guesses:" + wrong_guesses_str, font=("Helvetica", 25),fg = "#FF4A1B",justify=CENTER)
+    elif(n == -1):
+        wrong_guesses_list = wrong_guesses_list + (guess[0])
+        # wrong_guesses_str = " ".join([str(element) for element in wrong_guesses_list])
+        wrong_guess.config(text = "Wrong Guesses:" + wrong_guesses_list, font=("Helvetica", 25),fg = "#FF4A1B",justify=CENTER)
+    # else:
+    #     return 
         
 
         # wrong_guesses = wrong_guesses + " " + guess
@@ -109,7 +113,7 @@ def submit ():
 
 #front end label and buttons
 
-wrong_guess = Label(root, text = "Wrong Guesses:" + wrong_guesses, font=("Helvetica", 25),fg = "#FF4A1B",justify=CENTER)
+wrong_guess = Label(root, text = "Wrong Guesses:" + "", font=("Helvetica", 25),fg = "#FF4A1B",justify=CENTER)
 
 correct_or_wrong_guess = Label(root, text = "",font=("Helvetica", 25), justify=CENTER)
 
