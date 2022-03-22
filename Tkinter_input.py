@@ -37,6 +37,8 @@ def a_new_game():
 def submit ():
     global wrong_guesses, chosen_word, partial_word,wrong_guesses_list
     guess=entry_box.get()
+    entry_box.config(text = "")
+    entry_box.delete(0, 'end')
     if (
         guess[0] == chosen_word[0]
         or guess[0].upper() == chosen_word[0]
@@ -115,7 +117,7 @@ word_to_guess= Label(root, text = partial_word,font=("Helvetica", 25), justify=C
 
 congrats= Label(root, text = "congrats",font=("Helvetica", 25), justify=CENTER)
 
-entry_box = Entry(root, width = 5,font=("Helvetica", 25) )
+entry_box = Entry(root, text = "", width = 5,font=("Helvetica", 25) )
 
 submit = Button(root, text = "Submit",font=("Helvetica", 18),bg="#B900FF", command=submit )
 new_game = Button(root, text = "New Game",font=("Helvetica", 18),bg="#FF4A1B", command=a_new_game )
