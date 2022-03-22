@@ -1,6 +1,5 @@
 from tkinter import *
 from tkinter import Button
-import PIL.Image
 from PIL import ImageTk, Image
 import random
 
@@ -118,16 +117,7 @@ def submit ():
 
 
 #?Front end labels and buttons
-# original_B_ball = Image.open("B-I-N-G-O_balls/B-Bingo-ball.png")  # call image b4 resize
-# resized_B = original_B_ball.resize((200, 150), Image.ANTIALIAS)  # resize(sides, height)
-# resized_B_ball = ImageTk.PhotoImage(resized_B)
-# WS_icon = Image.open("images/WS_icon_display.png")
-# resized_WS_icon = WS_icon.resize((50, 50), Image.ANTIALIAS)  # resize(sides, height)
-# word_solver_icon = Label(root, image=resized_WS_icon, bg="#FFFFFF")
-
 wrong_guess = Label(root, text = "Wrong Guesses:" + "", font=("Helvetica", 25),fg = "#FF0101",bg="#1ceae8",justify=CENTER)
-
-# correct_or_wrong_guess = Label(root, text = "",font=("Helvetica", 25),bg="#1ceae8",justify=CENTER)
 
 word_to_guess= Label(root, text = partial_word,font=("Helvetica", 25),bg="#1ceae8",justify=CENTER)
 
@@ -139,12 +129,17 @@ submit = Button(root, text = "Submit",font=("Helvetica", 18),bg="#B900FF", comma
 
 new_game = Button(root, text = "New Game",font=("Helvetica", 18),bg="#FF0101", command=a_new_game )
 
-top= Label(root, bg="#1ceae8")
-top2= Label(root, bg="#1ceae8")
-# positions
-top.pack()
-top2.pack()
-# word_solver_icon.pack()
+# Read the Image
+image = Image.open("images/WS_icon_display.png")
+# Resize the image using resize() method
+resize_image = image.resize((210, 130))# resize(sides, height)
+icon = ImageTk.PhotoImage(resize_image)
+# create label and add resize image
+label1 = Label(image=icon)
+label1.image = icon
+
+#positions
+label1.pack()
 wrong_guess.pack()
 word_to_guess.pack()
 entry_box.pack()
