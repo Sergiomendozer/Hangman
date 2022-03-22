@@ -14,13 +14,14 @@ User has to guess five letter word generated to build the missing word by guessi
 
 Python, Tkinter
 
+## Images
+
+<a href="url"><img src="/images/WS_new_game.png" align="left" height="230" width="400" ></a>
+
+<a href="url"><img src="/images/WS_solved.png" align="left" height="230" width="400" ></a>
+
 ## 🔗 Links
 
 [![portfolio](https://img.shields.io/badge/my_portfolio-000?style=for-the-badge&logo=ko-fi&logoColor=white)](https://katherinempeterson.com/)
 [![linkedin](https://img.shields.io/badge/linkedin-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/sergio-mendoza-software-developer/)
 [Demo](https://replit.com/@sergiomendozer/Word-Solver?v=1)
-
-## Images
-
-<a href="url"><img src="/images/WS_new_game.png" align="left" height="230" width="400" ></a>
-<a href="url"><img src="/images/WS_solved.png" align="left" height="230" width="400" ></a>
