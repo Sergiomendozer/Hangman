@@ -49,7 +49,6 @@ def submit ():
         partial_word = partial_word.split()
         partial_word[0] = chosen_word[0]
         partial_word = " ".join([str(element) for element in partial_word])
-        correct_or_wrong_guess.config(text = "Correct",font=("Helvetica", 25),fg = "#097100",justify=CENTER)
         word_to_guess.config(text = partial_word,font=("Helvetica", 25), justify=CENTER)
     elif (
         guess[0] == chosen_word[1]
@@ -59,7 +58,6 @@ def submit ():
         partial_word = partial_word.split()
         partial_word[1] = chosen_word[1]
         partial_word = " ".join([str(element) for element in partial_word])
-        correct_or_wrong_guess.config(text = "Correct",font=("Helvetica", 25),fg = "#097100",justify=CENTER)
         word_to_guess.config(text = partial_word,font=("Helvetica", 25), justify=CENTER)
     elif (
         guess[0] == chosen_word[2]
@@ -69,7 +67,6 @@ def submit ():
         partial_word = partial_word.split()
         partial_word[2] = chosen_word[2]
         partial_word = " ".join([str(element) for element in partial_word])
-        correct_or_wrong_guess.config(text = "Correct",font=("Helvetica", 25),fg = "#097100",justify=CENTER)
         word_to_guess.config(text = partial_word,font=("Helvetica", 25), justify=CENTER)
     elif (
         guess[0] == chosen_word[3]
@@ -79,7 +76,6 @@ def submit ():
         partial_word = partial_word.split()
         partial_word[3] = chosen_word[3]
         partial_word = " ".join([str(element) for element in partial_word])
-        correct_or_wrong_guess.config(text = "Correct",font=("Helvetica", 25),fg = "#097100",justify=CENTER)
         word_to_guess.config(text = partial_word,font=("Helvetica", 25), justify=CENTER)
     elif (
         guess[0] == chosen_word[4]
@@ -89,7 +85,6 @@ def submit ():
         partial_word = partial_word.split()
         partial_word[4] = chosen_word[4]
         partial_word = " ".join([str(element) for element in partial_word])
-        correct_or_wrong_guess.config(text = "Correct",font=("Helvetica", 25),fg = "#097100",justify=CENTER)
         word_to_guess.config(text = partial_word,font=("Helvetica", 25), justify=CENTER)
     elif(n == -1):
         wrong_guesses_list = wrong_guesses_list + (guess[0])
@@ -98,13 +93,13 @@ def submit ():
 
 #?#############################################################################
 
-wrong_guess = Label(root, text = "Wrong Guesses:" + "", font=("Helvetica", 25),fg = "#FF0101",justify=CENTER)
+wrong_guess = Label(root, text = "Wrong Guesses:" + "", font=("Helvetica", 25),fg = "#FF0101",bg="#AAABAB",justify=CENTER)
 
-correct_or_wrong_guess = Label(root, text = "",font=("Helvetica", 25), justify=CENTER)
+# correct_or_wrong_guess = Label(root, text = "",font=("Helvetica", 25),bg="#AAABAB",justify=CENTER)
 
-word_to_guess= Label(root, text = partial_word,font=("Helvetica", 25), justify=CENTER)
+word_to_guess= Label(root, text = partial_word,font=("Helvetica", 25),bg="#AAABAB",justify=CENTER)
 
-congrats= Label(root, text = "congrats",font=("Helvetica", 25), justify=CENTER)
+congrats= Label(root, text = "congrats",font=("Helvetica", 25),bg="#AAABAB", justify=CENTER)
 
 entry_box = Entry(root, text = "", width = 5,font=("Helvetica", 25) )
 
@@ -114,7 +109,7 @@ new_game = Button(root, text = "New Game",font=("Helvetica", 18),bg="#FF0101", c
 # positions
 top= Label(root)
 top.pack()
-correct_or_wrong_guess.pack()
+# correct_or_wrong_guess.pack()
 wrong_guess.pack()
 word_to_guess.pack()
 entry_box.pack()
