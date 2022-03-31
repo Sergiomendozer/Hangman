@@ -16,9 +16,9 @@ Python, Tkinter
 
 ## Images
 
-<a href="url"><img src="/images/WS_new_game.png" align="left" height="230" width="400" ></a>
+<a href="url"><img src="/images/WS_new_game.png" height="230" width="400" ></a>
 
-<a href="url"><img src="/images/WS_solved.png" align="left" height="230" width="400" ></a>
+<a href="url"><img src="/images/WS_solved.png" height="230" width="400" ></a>
 
 ## 🔗 Links
 
